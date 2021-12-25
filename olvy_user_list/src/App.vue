@@ -2,18 +2,13 @@
   <div id="app">
     <Header />
     <div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <HelloWorld />
-    <Body></Body>
+      <Body></Body>
     </div>
-    <div>
-      <Footer />
-    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Header from "./components/Header.vue";
 import Body from "./components/Body.vue";
 import Footer from "./components/Footer.vue";
@@ -21,7 +16,6 @@ import Footer from "./components/Footer.vue";
 export default {
   name: "App",
   components: {
-    HelloWorld,
     Header,
     Body,
     Footer,
@@ -38,6 +32,5 @@ export default {
   color: #2c3e50;
   background-image: url("https://olvy.s3.amazonaws.com/hero-background.svg");
   background-size: cover;
-  /* margin-top: 60px; */
 }
 </style>
