@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
     <div>
-      <Body></Body>
+      <Body />
     </div>
     <Footer />
   </div>
