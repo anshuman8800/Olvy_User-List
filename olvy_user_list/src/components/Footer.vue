@@ -1,7 +1,7 @@
 <template>
   <!-- Footer -->
   <mdb-footer color="black" class="font-small pt-0">
-    <div class="footer-copyright text-center py-3">
+    <div class="footer-copyright text-center py-3" id="footer">
       <mdb-container fluid>
         &copy; 2021 Olvy Inc. All rights reserved.
       </mdb-container>
@@ -20,3 +20,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#footer {
+  position: bottom;
+  margin-top: 400px;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 2.5rem;
+}
+</style>
