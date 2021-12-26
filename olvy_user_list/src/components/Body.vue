@@ -19,7 +19,7 @@
     </div>
 
     <div id="dat_list">
-      <DataList />
+      <DataList :searched_data = "searched_data" :show_search = "show_search"/>
     </div>
   </div>
 </template>
@@ -32,6 +32,10 @@ export default {
   components: {
     DataList,
   },
+  props:{
+    searched_data : String,
+    show_search : Boolean,
+  }
 };
 </script>
 

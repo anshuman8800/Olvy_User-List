@@ -36,16 +36,19 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-form id="searchBar">
+          <b-nav-form id="searchBar" onsubmit="return false;">
             <b-form-input
               size="sm"
               class="mr-sm-2"
               placeholder="Search"
+              v-model="value"
+              v-on:keyup.enter="search()"
+              id="input"
             ></b-form-input>
             <b-button
               size="sm"
               class="my-2 my-sm-0"
-              type="submit"
+              v-on:click="search()"
               id="searchBtn"
               >Search</b-button
             >
@@ -59,6 +62,19 @@
 <script>
 export default {
   name: "Header",
+  methods: {
+    search() {
+      this.searched_data = this.value;
+      this.value = "";
+      this.$emit("clicked_search", this.searched_data);
+    },
+  },
+  data() {
+    return { value: "" };
+  },
+  props: {
+    searched_data: String,
+  },
 };
 </script>
 
