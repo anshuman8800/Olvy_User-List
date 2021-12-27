@@ -1,23 +1,19 @@
 <template>
-  <div id="root_DataList">
-    <div id="data_list">
+  <div id="main_body">
+    <div id="search_result" v-if="this.show_search">
       <h1>Search related to {{ this.searched_data }}</h1>
-
       <b-table striped hover :items="objects"></b-table>
-      <div id="apps" class="container mx-auto pt-12">
-        <b-table striped hover :items="this.data_list"></b-table>
-      </div>
     </div>
+    <div id="full_list" v-if="!this.show_search" >
+      <b-table striped hover :items="this.data_list"></b-table>
 
-    <div
-      v-if="this.data_list.length"
-      v-observe-visibility="handleScrolledToBottom"
-    >
-      <div v-if="this.current_index <= this.MAX_FILE_SIZE">
-        <b-spinner id="spinnerV" type="grow" small label="Small Spinner"></b-spinner>
-        <b-spinner id="spinnerP" type="grow" small label="Small Spinner"></b-spinner>
-        <b-spinner id="spinnerV" type="grow" small label="Small Spinner"></b-spinner>
-        <b-spinner id="spinnerP" type="grow" small label="Small Spinner"></b-spinner>
+      <div id="scroll_handler" v-if="this.data_list.length" v-observe-visibility="handleScrolledToBottom" >
+        <div v-if="this.current_index <= this.MAX_FILE_SIZE">
+          <b-spinner id="spinnerV" type="grow" small></b-spinner>
+          <b-spinner id="spinnerP" type="grow" small></b-spinner>
+          <b-spinner id="spinnerV" type="grow" small></b-spinner>
+          <b-spinner id="spinnerP" type="grow" small></b-spinner>
+        </div>
       </div>
     </div>
   </div>
@@ -33,7 +29,15 @@ export default {
     objects() {
       let data = [];
       if (this.show_search && testData.objects[this.searched_data - 1]) {
+        //For ID
         data.push(testData.objects[this.searched_data - 1]);
+      } else if (this.show_search) {
+        // For Name
+        for (var i = 0; i < testData.objects.length; i++) {
+          if (testData.objects[i]['FirstNameLastName'] == this.searched_data) {
+            data.push(testData.objects[i]);
+          }
+        }
       }
       return data;
     },
@@ -77,9 +81,13 @@ export default {
 </script>
 
 <style scoped>
-#data_list {
-  padding-left: 6rem;
-  padding-right: 6rem;
+#full_list {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+#search_result {
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 #spinnerP {
   color: #ff3a7c;

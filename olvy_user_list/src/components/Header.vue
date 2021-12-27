@@ -66,11 +66,16 @@ export default {
     search() {
       this.searched_data = this.value;
       this.value = "";
-      this.$emit("clicked_search", this.searched_data);
+      if(this.searched_data)
+        this.showed_result = true;
+      else this.showed_result = false;
+      this.$emit("clicked_search", this.searched_data, this.showed_result);
     },
   },
   data() {
-    return { value: "" };
+    return { value: "",
+    showed_result: false,
+    };
   },
   props: {
     searched_data: String,

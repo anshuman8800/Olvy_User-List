@@ -28,9 +28,9 @@ export default {
     };
   },
   methods: {
-    getClickedSearchItem(data) {
+    getClickedSearchItem(data,isShow) {
       this.searched_data = data;
-      this.show_search = true;
+      this.show_search = isShow;
     },
   },
 };
@@ -45,5 +45,7 @@ export default {
   color: #2c3e50;
   background-image: url("https://olvy.s3.amazonaws.com/hero-background.svg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 </style>
