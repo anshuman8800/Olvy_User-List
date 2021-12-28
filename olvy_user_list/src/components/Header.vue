@@ -74,11 +74,9 @@ export default {
   },
   data() {
     return { value: "",
+    searched_data:"",
     showed_result: false,
     };
-  },
-  props: {
-    searched_data: String,
   },
 };
 </script>

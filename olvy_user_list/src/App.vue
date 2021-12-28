@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <Header :searched_data="searched_data" @clicked_search="getClickedSearchItem" />
-    <!-- <h1>{{ searched_data }}</h1> -->
-    <div>
-      <Body :searched_data = "searched_data" :show_search = "show_search" />
+    <div id="body">
+      <Header @clicked_search="getClickedSearchItem" />
+      <div>
+        <Body :searched_data="searched_data" :show_search="show_search" />
+      </div>
     </div>
     <Footer />
   </div>
@@ -28,7 +29,7 @@ export default {
     };
   },
   methods: {
-    getClickedSearchItem(data,isShow) {
+    getClickedSearchItem(data, isShow) {
       this.searched_data = data;
       this.show_search = isShow;
     },

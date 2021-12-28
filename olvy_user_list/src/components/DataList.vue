@@ -1,8 +1,21 @@
 <template>
   <div id="main_body">
     <div id="search_result" v-if="this.show_search">
-      <h1>Search related to {{ this.searched_data }}</h1>
-      <b-table striped hover :items="objects"></b-table>
+      <h4 id="search_heading">Search related to 
+        <span style="color: #ff3a7c"><q>{{ this.searched_data }}</q> </span>
+        <span>
+
+        <span id="crossbtn">
+          <button id="crossBtn" @click="crossBtn">X</button>
+        </span > 
+        </span>
+      </h4>
+
+
+      <b-table v-if="this.objects.length" striped hover :items="objects"></b-table>
+      <div v-else >
+        <h4 id="nothingFound">OPPS!  Nothing Found Here</h4>   
+      </div>
     </div>
     <div id="full_list" v-if="!this.show_search" >
       <b-table striped hover :items="this.data_list"></b-table>
@@ -20,8 +33,6 @@
 </template>
 
 <script>
-// import testData from "../assets/testData.json";
-// import testData from "../assets/sample_data.json";
 import testData from "../assets/user_data_20k.json";
 export default {
   name: "DataList",
@@ -61,6 +72,9 @@ export default {
       }
       this.fetchObjects();
     },
+    crossBtn(){
+      this.show_search = false;
+    }
   },
   mounted() {
     this.fetchObjects();
@@ -88,6 +102,25 @@ export default {
 #search_result {
   padding-left: 5rem;
   padding-right: 5rem;
+}
+#search_heading{
+  padding-bottom: 1rem;
+  color: navy;
+  float: center;
+}
+#nothingFound{
+  padding-top: 5rem;
+  color: navy;
+}
+#crossBtn{
+  font-weight: bold;
+  color: navy;
+  border-radius:28px!important;
+  background-color:rgba(0, 0, 0, 0.0);
+  float:right;
+}
+#crossbtn{
+  text-align: right; 
 }
 #spinnerP {
   color: #ff3a7c;
