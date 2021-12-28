@@ -1,11 +1,15 @@
 <template>
   <div id="app">
-    <div id="body">
+    <!-- Main Body include Header component and Body component   -->
+    <div id="main_body">
+      <!-- HEADER Component :getClickedSearchItem() function invoke when user click on search button or press Enter on Input field  -->
       <Header @clicked_search="getClickedSearchItem" />
       <div>
+        <!-- BODY component is pass with searched_data and show_search varibales to display the result -->
         <Body :searched_data="searched_data" :show_search="show_search" />
       </div>
     </div>
+    <!-- Footer is outside the main body and at bottom -->
     <Footer />
   </div>
 </template>
@@ -24,11 +28,13 @@ export default {
   },
   data() {
     return {
+      // Variables to store the result from header component and sent back to Body component
       searched_data: "",
       show_search: false,
     };
   },
   methods: {
+    // getClickedSearchItem() function : store the values, which is comming from Header Component
     getClickedSearchItem(data, isShow) {
       this.searched_data = data;
       this.show_search = isShow;
