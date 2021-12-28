@@ -23,9 +23,9 @@ npm run serve
 Screenshot
 ![Screenshot](./olvy_user_list/public/Screenshot.jpeg)
 
-Reference
-https://bootstrap-vue.org/docs
-https://vuejs.org/resources/themes.html
-https://stackoverflow.com/
-https://www.youtube.com/results?search_query=vue.js+tutorial
+References<br />
+https://bootstrap-vue.org/docs<br />
+https://vuejs.org/resources/themes.html<br />
+https://stackoverflow.com/<br />
+https://www.youtube.com/results?search_query=vue.js+tutorial<br />
 
